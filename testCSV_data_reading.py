@@ -1,7 +1,7 @@
 import pandas as pd
 
 
-  # read csv> dataframe> get 'frame number' column /recorded_time> frame rate
+# read csv> dataframe> get 'frame number' column /recorded_time> frame rate
 class FrameData:
     def __init__(self, csv, record_time):
         self.csv = csv
