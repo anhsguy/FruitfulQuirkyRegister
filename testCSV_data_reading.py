@@ -25,6 +25,10 @@ class FrameData:
             f_delta_l.append(f_delta)
         print(f_delta_l)
         return f_delta_l
-
+if --name--=='--main--':
+    FD=FrameData('unit_test.csv',3)
+    print(FD.df)
+    FD.frame_number()
+    
 
 
