@@ -1,8 +1,30 @@
 name: Docker CI/CD
+
 on:
   push:
     branches:
       - main
+
 jobs:
   build:
-    runs-on: 
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Build Docker image
+        run: |
+          docker build -t your-image-name:latest .
+          docker tag your-image-name:latest your-image-name:$(git describe --tags --abbrev=0)
+        working-directory: ./path/to/your/app
+
+      - name: Login to Docker Hub
+        run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
+
+      - name: Push Docker image to Docker Hub
+        run: docker push your-image-name:latest
+
+      - name: Push Docker image with tags
+        run: docker push your-image-name:$(git describe --tags --abbrev=0)
+
