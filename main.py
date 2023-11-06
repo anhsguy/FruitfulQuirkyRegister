@@ -3,5 +3,5 @@ def hour_to_minutes(hours):
     # raise TypeError('Hours must be a number')
     return 'hour should be int or float'
   return hours * 60  
-if --name--=='--main--':
+if __name__=='__main__':
   print (hour_to_minutes(1.5))
