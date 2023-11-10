@@ -13,7 +13,7 @@ pipeline {
                 script {
                     sh 'python3 --version'
                     // sh 'pip3 install -r requirements.txt'
-                    sh 'python3 your_python_script.py'
+                    sh 'python3 testCSV_data_reading.py'
                 }
             }
         }
