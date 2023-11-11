@@ -13,6 +13,7 @@ pipeline {
                 script {
                     sh 'python3 --version'
                     sh 'pwd'
+                    sh 'ls /var/jenkins_home/workspace/python-pipeline_github'
                     // sh 'ls
                     // Install the necessary package for venv
                     // sh 'sudo apt update && apt install -y python3.11-venv'
