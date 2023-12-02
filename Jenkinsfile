@@ -1,21 +1,34 @@
 pipeline {
     agent any
-
+ 
     stages {
         stage('Checkout') {
             steps {
-                checkout scm
+                // Checkout code from the repository
+                script {
+                    checkout scm
+                }
             }
         }
-
-        stage('Build and Test') {
+        
+        stage('Run Python Code') {
             steps {
+                // Run Python code
                 script {
                     sh 'python3 --version'
-                    // sh 'pip3 install -r requirements.txt'
+                    sh 'python3 main.py'
                     sh 'python3 testCSV_data_reading.py'
                 }
             }
+        }
+    }
+    
+    post {
+        success {
+            echo 'Python code execution successful!'
+        }
+        failure {
+            echo 'Failed to run Python code!'
         }
     }
 }
